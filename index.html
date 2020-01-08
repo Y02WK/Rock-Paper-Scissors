@@ -4,8 +4,8 @@
     <body>
         <script>
             function computerPlay() {   /*Choice generation for computer*/
-                const playList = ["Rock", "Paper", "Scissors"];
-                let computerChoice = playList[Math.floor(Math.random() * playList.length)];
+                const choiceList = ["Rock", "Paper", "Scissors"];
+                let computerChoice = choiceList[Math.floor(Math.random() * choiceList.length)];
                 return computerChoice;
             }
 
@@ -15,7 +15,7 @@
               return a;
           }
 
-            function playRound(playerSelection, computerSelection) {    /*Game of RPS utilising previous function for player inputs*/
+            function playARound(playerSelection, computerSelection) {    /*Game of RPS utilising previous function for player inputs*/
                 playerSelection = capitalize(playerSelection);
                 if (playerSelection == computerSelection) {
                     return("Draw!")
@@ -26,7 +26,7 @@
                 }
             }
             
-            function playerInput() {
+            function playerInput() {    /*Function for player input of their selection, with checking function to ensure that only Rock | Paper | Scissors is entered into prompt*/ 
                 let playerPrompt = capitalize(prompt("Please input your selection. Rock , Paper or Scissors only"));
                 while (playerPrompt != "Rock"&& playerPrompt !=  "Paper" && playerPrompt != "Scissors") {
                     playerPrompt = capitalize(prompt("Please only input Rock, Paper or Scissors."))
@@ -39,12 +39,12 @@
                 let playerWin = 0;
                 let computerWin = 0;
                 while (gameCount < 5) {
-                    let playerSelection = playerInput(); /*Player input*/
+                    let playerSelection = playerInput(); 
                     let computerSelection = computerPlay();
-                    playRound(playerSelection, computerSelection)
-                    if (playRound(playerSelection, computerSelection).includes("win")) {
+                    playARound(playerInput, computerSelection)
+                    if (playARound(playerSelection, computerSelection).includes("win")) {
                         playerWin += 1;
-                    } else if (playRound(playerSelection, computerSelection).includes("lose")) {
+                    } else if (playARound(playerSelection, computerSelection).includes("lose")) {
                         computerWin += 1;
                     }
                     console.log(playRound(playerSelection, computerSelection))
