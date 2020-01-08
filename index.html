@@ -9,17 +9,16 @@
                 return computerChoice;
             }
 
-            function capitalize(a) {    /*String standardization for player entry*/
-              a = a.toLowerCase();
-              a = a[0].toUpperCase() + a.slice(1,);
-              return a;
+            function capitalize(inputWord) {    /*String standardization for player entry*/
+              inputWord = inputWord.toLowerCase();
+              inputWord = inputWord[0].toUpperCase() + inputWord.slice(1,);
+              return inputWord;
           }
 
             function playARound(playerSelection, computerSelection) {    /*Game of RPS utilising previous function for player inputs*/
-                playerSelection = capitalize(playerSelection);
                 if (playerSelection == computerSelection) {
                     return("Draw!")
-                } else if ((playerSelection == "Rock" & computerSelection == "Paper") | (playerSelection == "Scissors" & computerSelection == "Rock") | (playerSelection == "Paper" & computerSelection == "Scissors")){
+                } else if ((playerSelection == "Rock" && computerSelection == "Paper") | (playerSelection == "Scissors" && computerSelection == "Rock") | (playerSelection == "Paper" && computerSelection == "Scissors")){
                     return("You lose! " + computerSelection + " beats " + playerSelection)
                 } else {
                     return("You win! " + playerSelection + " beats " + computerSelection)
@@ -28,7 +27,7 @@
             
             function playerInput() {    /*Function for player input of their selection, with checking function to ensure that only Rock | Paper | Scissors is entered into prompt*/ 
                 let playerPrompt = capitalize(prompt("Please input your selection. Rock , Paper or Scissors only"));
-                while (playerPrompt != "Rock"&& playerPrompt !=  "Paper" && playerPrompt != "Scissors") {
+                while (playerPrompt != "Rock" & playerPrompt !=  "Paper" & playerPrompt != "Scissors") {
                     playerPrompt = capitalize(prompt("Please only input Rock, Paper or Scissors."))
                 }
                 return capitalize(playerPrompt);
@@ -47,7 +46,7 @@
                     } else if (playARound(playerSelection, computerSelection).includes("lose")) {
                         computerWin += 1;
                     }
-                    console.log(playRound(playerSelection, computerSelection))
+                    console.log(playARound(playerSelection, computerSelection))
                     gameCount += 1;
                 }
                 if (playerWin == computerWin) {
